@@ -19,10 +19,10 @@ const HeroBanner = () => {
           p="20px"
         >
           <Typography color="#FF2625" fontSize="26px" fontWeight="600">
-            Fitness Akhada
+            MAYANK'S FITNESS WORLD
           </Typography>
           <Typography
-            fontWeight="700"
+            fontWeight={700}
             sx={{
               fontSize: { lg: "44px", xs: "40px" },
             }}
@@ -50,14 +50,18 @@ const HeroBanner = () => {
             color="#ff2625"
             sx={{
               opacity: 0.1,
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(50%, -50%)",
+              fontSize: "55px",
               display: {
                 lg: "block",
                 xs: "none",
               },
             }}
-            fontSize="200px"
           >
-            EXERCISE{" "}
+            NEVER BACK DOWN
           </Typography>
         </Box>
       </Grid>
@@ -68,7 +72,7 @@ const HeroBanner = () => {
           src={HeroBannerImage}
           alt="banner"
           className="hero-banner-img"
-          style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+          style={{ width: "100%", height: "auto", maxWidth: "450px" }}
         />
       </Grid>
     </Grid>
