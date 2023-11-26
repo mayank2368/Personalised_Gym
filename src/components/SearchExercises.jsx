@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Box, Stack, Typography, TextField, Button } from "@mui/material";
-import { fontWeight } from "@mui/system";
-import { async } from "q";
+import { exerciseOptions, fetchData } from "../utils/fetchData";
 
 const SearchExercises = () => {
   const [search, setSearch] = useState("");
 
   const handleSearch = async () => {
     if (search) {
-      //   const exercisesData = await fetchData();
+      const exercisesData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises",
+        exerciseOptions
+      );
+
+      console.log(exercisesData);
     }
   };
   return (
@@ -39,7 +43,7 @@ const SearchExercises = () => {
             borderRadius: "40px",
           }}
           height="76px"
-          value="search"
+          value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
           placeholder="Search exercises"
           type="text"

@@ -72,7 +72,7 @@ const HeroBanner = () => {
           src={HeroBannerImage}
           alt="banner"
           className="hero-banner-img"
-          style={{ width: "100%", height: "auto", maxWidth: "450px" }}
+          style={{ width: "100%", height: "auto", maxWidth: "400px" }}
         />
       </Grid>
     </Grid>
