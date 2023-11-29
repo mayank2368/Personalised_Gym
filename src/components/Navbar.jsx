@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
-import Logo from "../assets/images/Mayank (1).png";
+import Logo from "../assets/images/Mayank.png";
 
 const Navbar = () => {
   return (
@@ -23,9 +23,9 @@ const Navbar = () => {
           src={Logo}
           alt="logo"
           style={{
-            width: "50px",
-            height: "50px",
-            margin: "0 20px",
+            width: "55px",
+            height: "55px",
+            margin: "0 10px",
           }}
         />
       </Link>
