@@ -1,40 +1,41 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import BodyPart from "./BodyPart";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import ExerciseCard from "./ExerciseCard";
 import RightArrowIcon from "../assets/icons/right-arrow.png";
 import LeftArrowIcon from "../assets/icons/left-arrow.png";
-import ExerciseCard from "./ExerciseCard";
-
-const LeftArrow = () => {
-  const { scrollPrev } = useContext(VisibilityContext);
-
-  return (
-    <Typography onClick={() => scrollPrev()} className="right-arrow">
-      <img src={LeftArrowIcon} alt="right-arrow" />
-    </Typography>
-  );
-};
-
-const RightArrow = () => {
-  const { scrollNext } = useContext(VisibilityContext);
-
-  return (
-    <Typography onClick={() => scrollNext()} className="left-arrow">
-      <img src={RightArrowIcon} alt="right-arrow" />
-    </Typography>
-  );
-};
 
 const HorizontalScrollbar = ({ data, bodyPart, bodyParts, setBodyPart }) => {
+  const scrollContainerRef = React.createRef();
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft -= 200; // Adjust the scroll distance as needed
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft += 200; // Adjust the scroll distance as needed
+    }
+  };
+
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+    <div
+      style={{ overflowX: "auto", whiteSpace: "nowrap" }}
+      ref={scrollContainerRef}
+    >
+      <Typography onClick={scrollLeft} className="right-arrow">
+        <img src={LeftArrowIcon} alt="left-arrow" />
+      </Typography>
+
       {data.map((item) => (
         <Box
           key={item.id || item}
           itemID={item.id || item}
           title={item.id || item}
           m="0 40px"
+          style={{ display: "inline-block" }}
         >
           {bodyParts ? (
             <BodyPart
@@ -47,7 +48,11 @@ const HorizontalScrollbar = ({ data, bodyPart, bodyParts, setBodyPart }) => {
           )}
         </Box>
       ))}
-    </ScrollMenu>
+
+      <Typography onClick={scrollRight} className="left-arrow">
+        <img src={RightArrowIcon} alt="right-arrow" />
+      </Typography>
+    </div>
   );
 };
 

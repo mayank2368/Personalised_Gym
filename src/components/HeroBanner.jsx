@@ -53,7 +53,7 @@ const HeroBanner = () => {
               position: "absolute",
               top: "50%",
               left: "50%",
-              transform: "translate(50%, -50%)",
+              transform: "translate(40%, -50%)",
               fontSize: "55px",
               display: {
                 lg: "block",
@@ -72,7 +72,7 @@ const HeroBanner = () => {
           src={HeroBannerImage}
           alt="banner"
           className="hero-banner-img"
-          style={{ width: "100%", height: "auto", maxWidth: "400px" }}
+          style={{ width: "100%", height: "auto", maxWidth: "610px" }}
         />
       </Grid>
     </Grid>
